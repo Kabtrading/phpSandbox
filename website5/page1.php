@@ -1,4 +1,13 @@
+<?php 
+    if(isset($_POST['submit'])){
+        $username = htmlentities($_POST['username']);
 
+        // cookie set for one hour to store username
+        setcookie('username', $username, time()+3600);
+
+        header('Location: page2.php');
+    }
+?>
 
 
 <!DOCTYPE html>
@@ -13,9 +22,9 @@
 </head>
 <body>
     
-<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-        <input type="text" name="name" placeholder="enter name"><br>
-        <input type="text" name="email" placeholder="enter email"><br>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        <input type="text" name="username" placeholder="enter name"><br>
+      
         <input type="submit" name="submit" value="Submit"><br>
     </form>
 
