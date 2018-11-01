@@ -3,7 +3,7 @@
     require('config/config.php');
 
     // create query
-    $query = 'SELECT * FROM posts';
+    $query = 'SELECT * FROM posts ORDER BY created_at DESC';
 
     // Get result
     $result = mysqli_query($conn, $query);
@@ -24,7 +24,7 @@
 <div class="container">
 <h1>Posts</h1>
     <?php foreach($posts as $post) : ?>
-        <div class="card border-primary mt-2">
+        <div class="card border-primary bg-dark text-light mt-2">
             <h3>
                 <?php echo $post['title']; ?>
             </h3>
